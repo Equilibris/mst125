@@ -4,8 +4,32 @@
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{enumitem}
+\usepackage{listings}
 \usepackage{float}
 \usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
 
 \author{William B. Sørensen}
 \title{MST125 TMA01}
@@ -168,10 +192,10 @@ $$7 \times 15 \equiv 105 \equiv 4 \times 26 + 1 \equiv 1 \mod 26$$
 \subsubsection{ii}
 
 $$\begin{matrix}
-		( & 8  & + & 24 & ) & \times & 15 & \equiv & 12 & \mod 26 \\
-		( & 16 & + & 24 & ) & \times & 15 & \equiv & 24 & \mod 26 \\
-		( & 25 & + & 24 & ) & \times & 15 & \equiv & 7  & \mod 26 \\
-		( & 2  & + & 24 & ) & \times & 15 & \equiv & 0  & \mod 26 \\
+		( & 8  & - & 12 & ) & \times & 15 & \equiv & 18 & \mod 26 \\
+		( & 16 & - & 12 & ) & \times & 15 & \equiv & 8  & \mod 26 \\
+		( & 25 & - & 12 & ) & \times & 15 & \equiv & 13 & \mod 26 \\
+		( & 2  & - & 12 & ) & \times & 15 & \equiv & 6  & \mod 26 \\
 	\end{matrix}$$
 
 Using the conversion table in Figure \ref{fig:conversion-table} we get
@@ -191,6 +215,129 @@ Using the conversion table in Figure \ref{fig:conversion-table} we get
 	\label{fig:conversion-table}
 \end{figure}
 
-$$"\mathrm{IQZB}"\xrightarrow{\alpha-\mathrm{numeric}}\{8,\;16,\;25,\;2\}\xrightarrow{\mathrm{affine}^{-1}}\{12,\;24,\;7,\;0\}\xrightarrow{{\alpha-\mathrm{numeric}}^{-1}}"\mathrm{MYHA}"$$
+$$"\mathrm{IQZC}"\xrightarrow{\alpha-\mathrm{numeric}}\{8,\;16,\;25,\;2\}\xrightarrow{\mathrm{affine}^{-1}}\{18,\;8,\;13,\;6\}\xrightarrow{{\alpha-\mathrm{numeric}}^{-1}}"\mathrm{SING}"$$
+
+\section{Question 4}
+
+We rewrite the hyperbola into standard notation for standard possition.
+
+\begin{align*}
+	9 x^2 - 4 y^2 - 100                                   & = 0            \\
+	9 x^2 - 4 y^2                                         & = 100 = 2^25^2 \\
+	9 \frac {x^2} {100} - \frac {y^2} {25}                & = 1            \\
+	\frac {x^2} {100\times 9^{-1}} - \frac {y^2} {25}     & = 1            \\
+	\frac {x^2} {(10\times 3^{-1})^2} - \frac {y^2} {5^2} & = 1
+\end{align*}
+
+This gives ut a few key values
+
+\begin{align*}
+	a & = \frac {10}3 & b & = 5 & e & = \sqrt {1 + \frac {25\times9}{100}} = \frac {\sqrt{13}}{2}
+\end{align*}
+
+\subsubsection {i}
+
+The asymtotes are $y = \pm \frac {3} {2}x$. Verticies are $(\pm \frac {10}3, 0)$.
+
+\subsubsection {ii}
+
+TODO
+
+\subsubsection{iii}
+
+\begin{align*}
+	 & \mathrm{eccentricity} & e               & = \frac {\sqrt {13}}2            \\
+	 & \mathrm{foci}         & (\pm ae, 0)     & = (\pm\sqrt {13}~ \frac {5} 3,0) \\
+	 & \mathrm{directrices}  & y = \pm\frac ae & = \pm \frac {20} {3\sqrt {13}}
+\end{align*}
+
+\subsubsection{iv}
+
+$$
+	\begin{pmatrix}
+		x \\ y
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		\frac {10}3 & \sec t \\
+		5           & \tan t \\
+	\end{pmatrix}
+$$
+
+To find the bounds we need to observe when we have the signs we want. Since we want a point with a negative $x$-sign and a possitive $y$-sign we need to see when the functions satasfy this.
+
+$$\sec x < 0 \;\mathrm{if} -3\frac \pi 2 < x < - \frac \pi 2$$
+
+and in the same interval we can see that
+
+$$\tan x > 0 \;\mathrm{if} -\pi < x < - \frac \pi 2$$
+
+Hence the interval for $t$ is $-\pi < t < - \frac \pi 2$.
+
+\subsection{b}
+
+$$6x^2 - 8xy + 5y^2 - 3x - 16y - 20 = 0$$
+
+\subsubsection{i}
+
+$$T = B^2 - 4 AC = 64 - 6 \times 5 = 34$$
+
+Since $T > 0$ then the conic must be a Hyperbola.
+
+\subsubsection{ii}
+
+\begin{lstlisting}
+	wxdraw2d(
+        implicit(
+            6 * x * x - 8 * x * y + 5 * y * y - 3 * x - 16 * y - 20 = 0,
+            x,-10,10,
+            y,-10,10
+        )
+	)$
+\end{lstlisting}
+
+\section{Question 5}
+
+\subsection{a}
+
+$$\mathrm A = (4 t + 2 , t - 1)$$
+
+if $t=1$ then we get $(6,0)$. This means the entire line is translated up by $6$. If we then plug-in $t=2$ then we get $(10,1)$ which if we insert into the two point formula we get that the rise over run of this line is $\frac {10 - 6}{1 - 0} = 4$. This means the equation for the curve $\mathrm A$ traces is $y = 4x + 6$.
+
+\subsection{b}
+
+\begin{align*}
+	\mid\vec{\mathrm{BA}}\mid          & =
+	\begin {vmatrix}
+	(4t + 2) - (2t + 5)                                     \\
+	( t - 1) - (3t - 1)
+	\end {vmatrix}                                          \\
+	                                   & =
+	\begin {vmatrix}
+	2t - 3                                                  \\
+	-2t
+	\end {vmatrix}                                          \\
+	                                   & =
+	\sqrt {(2t - 3)^2 + (-2t)^2}                            \\
+	                                   & =
+	\sqrt {8t^2 -12t + 9}                                   \\
+	\\
+	d^2 ={\mid\vec{\mathrm{BA}}\mid}^2 & = 8 t^2 - 12 t + 9
+\end{align*}
+
+\section{c}
+
+\begin{align}
+	d^2 & = 8 t^2 - 12 t + 9                       \label{eq:l1}         \\
+	    & = 8\Big(t^2 - \frac 32 t\Big) + 9                \label{eq:l2} \\
+	    & = 8{\Big(t - \frac 34\Big)}^2 - \frac 9 {16} + 9 \label{eq:l3} \\
+	    & = 8{\Big(t - \frac 34\Big)}^2 + \frac {135} {16} \label{eq:l4}
+\end{align}
+
+The expression on (\ref{eq:l3}) ends up evaluating to
+$$8(t^2 - \frac 32 t + \frac 9 {16}) - \frac 9{16} + 9 = 8t^2 - 12 t + \frac 9 {2} - \frac 9{16} + 9$$
+which obviously is not equal to (\ref{eq:l2}).
+
+
 
 \end{document}

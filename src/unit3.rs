@@ -259,12 +259,14 @@ mod tests {
 
     #[test]
     fn affinet() {
-        let affine = Affine::new(3, 14).unwrap();
+        let affine = Affine::new(7, 12).unwrap();
 
-        let enc = affine.e_str("BROUHAHA");
+        let s = prepare_affine("IQZC".chars()).collect::<Vec<_>>();
 
-        let enc = affine.d_str(enc);
+        println!("{:?}", s);
 
-        println!("{}", enc);
+        let dec = affine.d_str(s.into_iter());
+
+        println!("{}", dec);
     }
 }
