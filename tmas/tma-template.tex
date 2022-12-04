@@ -1,18 +1,196 @@
 \documentclass{article}
+
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+
 \author{William B. Sørensen}
-\title{TMA1}
+\title{MST125 TMA01}
 \begin{document}
 \maketitle
 
-hello world
+\section{Question 1}
 
-$$formula edit$$
+\tableofcontents
 
-What if i add more stuff down here. is it hot reloaded?
-hello
+\subsection{a}
 
-world
+\begin{center}
+	\textbf {MST125 TMA 01 Question 1}
 
-even more edits
+	William Bjørn Sørensen, I220215X
+
+	\LaTeX
+\end{center}
+
+\subsection{b}
+
+\begin{enumerate}
+	\item The distance between $\mathrm A(x_1,~y_1)$ and $\mathrm B(x_2,~y_2)$ is given by
+	      \begin{align*}
+		      \mathrm {AB} & = \sqrt{{(x_2-x_1)}^2 + {(y_2-y_1)}^2} \mathrm.
+	      \end{align*}
+	      Hence the distance between $\mathrm A (-3,~1)$ and $\mathrm B (2,~-2)$ is
+	      \begin{align*}
+		      \mathrm {AB} & = \sqrt{{(2-(-3))}^2 + {(-1-1)}^2} \\
+		                   & = \sqrt {5^2 + (-3)^2}             \\
+		                   & = \sqrt {34}\mathrm .
+	      \end{align*}
+
+	\item The gradient $m$ of the line through $(x_1,~y_1)$ and $(x_2,~y_2)$ is given by
+	      \begin{align*}
+		      m = \frac {y_2 - y_1} {x_2 - x_1} \mathrm .
+	      \end{align*}
+	      Hence the gradient of the line through $(-3,~1)$ and $(2,~-2)$ is
+	      \begin{align*}
+		      m = \frac {-2-1} {2-(-3)} & = -\frac 35\mathrm .
+	      \end{align*}
+
+	\item The gradient of the line is $-\frac 35$. Hence $\tan \alpha = - \frac 35$.
+	      Let $\phi$ be the acute angle that the line makes with the nagative direction of the $x$-axis. Then
+	      \begin{align*}
+		      \tan \phi & = \frac 35 \mathrm ,
+	      \end{align*}
+	      so
+	      \begin{align*}
+		      \phi & = \tan^{-1} \Big( \frac 35 \Big) = 0.540\dots\mathrm .
+	      \end{align*}
+	      Hence
+	      \begin{align*}
+		      \alpha & = \pi - 0.540\dots = 2.601 \dots \mathrm .
+	      \end{align*}
+	      Therefore the angle $\alpha$ is $2.60$ radiants (to 2 d.p.).
+\end{enumerate}
+
+\subsection{c}
+
+I intend to typeset my TMA through the fact that I believe the programatic power of \LaTeX is a great advantage. Through MST125 I have even started using \LaTeX over Markdown (with mathjax) for school assignemts now.
+
+Using \LaTeX in my daily school work leads me to a much DRYer (don't repeat yourself) documents where all my associate code can be refrenced with great accuracy without suffering from complecated compilation scripts.
+
+I have also configured a Vim integration so I can use my primary editor for TMAs.
+
+\section{Question 2}
+
+\begin{enumerate}[label=(\alph*)]
+	\item Find the least residue of $64^7$ modulo $15$.
+	      \begin{align*}
+		      64^7 & \equiv x \mod {15} \\
+		      4^7  & \equiv x \mod {15}
+	      \end{align*}
+	      We observe $4^2 \equiv 1 \mod {15}$.
+	      \begin{align*}
+		      4^1  & \equiv x \mod {15} \\
+		      64^7 & \equiv 4 \mod {15} \\
+	      \end{align*}
+\end{enumerate}
+
+\section{Question 3}
+
+\subsection{a}
+
+\subsubsection{i}
+
+We find the $\gcd$ using Euler's algorithm. These variable names come from CAS tool I wrote in Rust for Unit3.
+
+$$\begin{matrix}
+		a  &   & q &        & b  &   & r \\
+		90 & = & 5 & \times & 17 & + & 5 \\
+		17 & = & 3 & \times & 5  & + & 2 \\
+		5  & = & 2 & \times & 2  & + & 1 \\
+		2  & = & 2 & \times & 1  & + & 0
+	\end{matrix}$$
+
+We reshape for substitution
+
+$$\begin{matrix}
+		\textcircled 5 & = & \textcircled {90} & - & 5 & \times & \textcircled {17} \\
+		\textcircled 2 & = & \textcircled {17} & - & 3 & \times & \textcircled 5    \\
+		\textcircled 1 & = & \textcircled 5    & - & 2 & \times & \textcircled 2
+	\end{matrix}$$
+And then conduct said substitution
+\begin{align*}
+	a \times \textcircled {17} + b \times \textcircled {90} & = \textcircled 1                                                                                                                               \\
+	                                                        & = \textcircled 5     -  2  \times \textcircled 2                                                                                               \\
+	                                                        & = (\textcircled {90}  -  5  \times  \textcircled {17})-  2  \times \textcircled 2                                                              \\
+	                                                        & = (\textcircled {90}  -  5  \times  \textcircled {17})-  2  \times (\textcircled {17} - 3 \times \textcircled 5)                               \\
+	                                                        & = (\textcircled {90} - 5 \times \textcircled {17}) - 2 \times (\textcircled {17} - 3 \times (\textcircled {90} - 5  \times \textcircled {17})) \\
+	                                                        & = 7 \times \textcircled {90} - 37  \times \textcircled {17}
+\end{align*}
+
+Then we find the least residual of $-37$ and deduce that the multiplicative inverse of $17 \mod 90$ is $53$.
+
+This means the solution to $17 x \equiv 9 \mod 90$ is $x \equiv 53 \times 9 \equiv 477 \equiv 27 \mod 90$.
+
+\subsubsection{ii}
+
+We begin by simplifying the congruence.
+
+$$\begin{matrix}
+		a & x & \equiv & b  & \mod & n  \\
+		9 & x & \equiv & 12 & \mod & 90 \\
+		3 & x & \equiv & 4  & \mod & 30
+	\end{matrix}$$
+
+As we can see here $\gcd (3,30) \ne 1$ and $3 \not|\;4$ so the congruence is unsolvable.
+
+\subsubsection{iii}
+
+
+We begin by simplifying the congruence.
+
+$$\begin{matrix}
+		a  & x & \equiv & b  & \mod & n  \\
+		27 & x & \equiv & 72 & \mod & 90 \\
+		3  & x & \equiv & 8  & \mod & 10 \\
+	\end{matrix}$$
+
+This is small enougth for a brute force attack but for clarities sake I will not do this.
+
+We can see they are coprime. Hence we can skip Euler's algo.
+
+\begin{align*}
+	\textcircled{10}a + \textcircled 3b & = 1                                           \\
+	                                    & = \textcircled {10} - 3 \times \textcircled 3
+\end{align*}
+
+We find least residual and multiply with $8$. So $x \equiv -3 \times 8 \equiv 7 \times 8 \equiv 56 \equiv 6 \mod 10$.
+
+\subsection{b}
+
+\subsubsection{i}
+
+$$7 \times 15 \equiv 105 \equiv 4 \times 26 + 1 \equiv 1 \mod 26$$
+
+\subsubsection{ii}
+
+$$\begin{matrix}
+		( & 8  & + & 24 & ) & \times & 15 & \equiv & 12 & \mod 26 \\
+		( & 16 & + & 24 & ) & \times & 15 & \equiv & 24 & \mod 26 \\
+		( & 25 & + & 24 & ) & \times & 15 & \equiv & 7  & \mod 26 \\
+		( & 2  & + & 24 & ) & \times & 15 & \equiv & 0  & \mod 26 \\
+	\end{matrix}$$
+
+Using the conversion table in Figure \ref{fig:conversion-table} we get
+
+\begin{figure}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		A  & B  & C  & D  & E  & F  & G  & H  & I  & J  & K  & L  & M  \\
+		0  & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & 12 \\
+		\hline
+		N  & O  & P  & Q  & R  & S  & T  & U  & V  & W  & X  & Y  & Z  \\
+		13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & 24 & 25 \\
+		\hline
+	\end{tabular}
+	\caption{Linear $0$-indexed $\alpha$-numeric conversion table}
+	\label{fig:conversion-table}
+\end{figure}
+
+$$"\mathrm{IQZB}"\xrightarrow{\alpha-\mathrm{numeric}}\{8,\;16,\;25,\;2\}\xrightarrow{\mathrm{affine}^{-1}}\{12,\;24,\;7,\;0\}\xrightarrow{{\alpha-\mathrm{numeric}}^{-1}}"\mathrm{MYHA}"$$
 
 \end{document}
