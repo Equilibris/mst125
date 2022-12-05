@@ -8,6 +8,8 @@
 \usepackage{float}
 \usepackage[utf8]{inputenc}
 \usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{subcaption}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -28,6 +30,8 @@
     showtabs=false,
     tabsize=2
 }
+
+\graphicspath{ {./assets} }
 
 \lstset{style=mystyle}
 
@@ -241,7 +245,27 @@ The asymtotes are $y = \pm \frac {3} {2}x$. Verticies are $(\pm \frac {10}3, 0)$
 
 \subsubsection {ii}
 
-TODO
+I have decided to sketch on paper as the Maxima plot does not show the verticies so well.
+
+\begin{figure}[H]
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[trim={20cm 10cm 10cm 50cm},clip,width=.7\linewidth]{TMA01-T4-sketch}
+
+		\caption{Sketch of conic}
+		\label{fig:conic:sketch}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.7\linewidth]{TMA01-T4}
+
+		\caption{Maxima plot of conic}
+		\label{fig:conic:maxima}
+	\end{subfigure}
+
+	\caption{Representations of conic}
+	\label{fig:conic}
+\end{figure}
 
 \subsubsection{iii}
 
@@ -259,8 +283,8 @@ $$
 	\end{pmatrix}
 	=
 	\begin{pmatrix}
-		\frac {10}3 & \sec t \\
-		5           & \tan t \\
+		\frac {10}3\; \sec t \\
+		5       \;\tan t     \\
 	\end{pmatrix}
 $$
 
@@ -333,10 +357,34 @@ if $t=1$ then we get $(6,0)$. This means the entire line is translated up by $6$
 	    & = 8{\Big(t - \frac 34\Big)}^2 - \frac 9 {16} + 9 \label{eq:l3} \\
 	    & = 8{\Big(t - \frac 34\Big)}^2 + \frac {135} {16} \label{eq:l4}
 \end{align}
+\begin{center}
+	\parbox{7cm}{
+		the minimum value of $d^2$ occurs when $t =\frac 34$.
+		hence the minimum distance is $8.4 \mathrm m$ (to 2 s.f)}
+\end{center}
 
 The expression on (\ref{eq:l3}) ends up evaluating to
 $$8(t^2 - \frac 32 t + \frac 9 {16}) - \frac 9{16} + 9 = 8t^2 - 12 t + \frac 9 {2} - \frac 9{16} + 9$$
 which obviously is not equal to (\ref{eq:l2}).
+
+Finally the statement that the distance is $\frac 32$ is incorrect since this is the square of the distance. The correct answer to the distance (including the compounded errir) is $\frac {\sqrt{135}}4$.
+
+% (\ref{eq:l4}) then compounds the error from (\ref{eq:l3}). I do not believe this falls into the wording "[...] the working does not follow on from the previous line." yet it is a mistake.
+
+Personally I would solve this task with a differentiation and a substutution but employing the same workings as the student we get as follows:
+
+\begin{align}
+	d^2 & = 8 t^2 - 12 t + 9                       \label{eq:2l1}         \\
+	    & = 8\Big(t^2 - \frac 32 t\Big) + 9                \label{eq:2l2} \\
+	    & = 8{\Big(t - \frac 34\Big)}^2 - \frac 92 + 9 \label{eq:2l3}     \\
+	    & = 8{\Big(t - \frac 34\Big)}^2 + \frac 92 \label{eq:2l4}
+\end{align}
+
+\begin{center}
+	\parbox{7cm}{
+		The minimum value of $d^2$ occurs when $t =\frac 34$.
+		hence the minimum distance is $\frac 3{\sqrt 2} \mathrm m = 2.12\mathrm m $ (to 2 s.f)}
+\end{center}
 
 
 
