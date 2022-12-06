@@ -10,6 +10,10 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{textcomp}
+
+\usetikzlibrary{quotes,angles}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -386,6 +390,123 @@ Personally I would solve this task with a differentiation and a substutution but
 		hence the minimum distance is $\frac 3{\sqrt 2} \mathrm m = 2.12\mathrm m $ (to 2 s.f)}
 \end{center}
 
+\section{Question 6}
 
+\subsection{a}
+
+We can see the force diagram as Figure \ref{fig:fd}. This represents a simplification of the forces; angles nor magnatures are correct.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\coordinate (t1) at (2,   1.5);
+		\coordinate (f)  at (-2,  -.5);
+		\coordinate (fi) at (2,   .5);
+		\coordinate (x)  at (.5,   -2);
+		\coordinate (g)  at (0,   -3);
+		\coordinate (n)  at (-0.5, 2);
+
+		\coordinate (o)  at (0,    0);
+
+		\coordinate (i)  at (6,    .25);
+		\coordinate (j)  at (4.75, 1);
+		\coordinate (ij) at (5,    0);
+
+		\coordinate (o2) at (10,   0);
+		\coordinate (t2) at (10,   2);
+		\coordinate (g2) at (10,  -2);
+
+
+		\draw (x) [dashed]-- (o);
+
+		\draw (t1) node [above] {$T_1$};
+		\draw (t1) [<-]-- (o);
+		\draw (fi) [dashed]-- (o);
+
+		\draw (f) node [above] {$F$};
+		\draw (f) [<-]-- (o);
+
+		\draw (g) [<-]-- (o);
+		\draw (g) node [left] {$G_1$};
+
+		\draw (n) [<-]-- (o);
+		\draw (n) node [left] {$N$};
+
+		\draw [fill] (o) circle [radius=0.1];
+
+		\draw pic["$10^{\circ}$", draw=black, <->, angle eccentricity=1.3, angle radius=1cm]
+			{angle=fi--o--t1};
+		\draw pic["$20^{\circ}$", draw=black, <->, angle eccentricity=1.3, angle radius=2cm]
+			{angle=g--o--x};
+
+		\draw (i) [<-]--(ij);
+		\draw (i) node [above] {$i$};
+
+		\draw (j) [<-]--(ij);
+		\draw (j) node [above] {$j$};
+
+		\draw (t2) node [above] {$T_2$};
+		\draw (t2) [<-]-- (o2);
+
+		\draw (g2) [<-]-- (o2);
+		\draw (g2) node [left] {$G_2$};
+
+		\draw [fill] (o2) circle [radius=0.1];
+	\end{tikzpicture}
+
+	\caption{Force diagram}
+	\label{fig:fd}
+\end{figure}
+
+\subsection{b}
+\label{sec:newtonpain}
+
+\begin{align*}
+	\mathbf F + \mathbf N + \mathbf {T} + \mathbf G                                                          & = 0 \\
+	-i~F + j~N + (i\cos {10^{\circ}}, j\sin {10^{\circ}})~T+ (-i\sin {20^{\circ}} -j\cos {20^{\circ}})~G     & = 0 \\
+	-i~\mu N + j~N + (i\cos {10^{\circ}}, j\sin {10^{\circ}})~T+ (-i\sin {20^{\circ}} -j\cos {20^{\circ}})~G & = 0 \\
+\end{align*}
+
+NOTE: $\mid\mathbf X\mid = X$ and in this case for simplicity $T=T_1$ and $G = G_1$.
+
+So if we split the equation into equations of its components we get:
+
+\begin{align}
+	\label{eq:subtarget}-\mu N + \cos {10^{\circ}} T- \sin {20^{\circ}} G & = 0 & N + T\sin {10^{\circ}} - G\cos {20^{\circ}} & = 0 \\
+	                                                                      &     & - T\sin {10^\circ} + G \cos {20^\circ}      & = N
+\end{align}
+
+We can now substitute $N$ into the first equasion of (\ref{eq:subtarget}) getting
+
+\begin{align*}
+	-\mu N + \cos {10^{\circ}} T- \sin {20^{\circ}} G                                        & = 0 \\
+	-\mu (- T\sin {10^\circ} + G \cos {20^\circ}) + \cos {10^{\circ}} T- \sin {20^{\circ}} G & = 0 \\
+	T(\mu\sin {10^\circ} + \cos {10^\circ}) -G(\mu \cos {20^\circ} + \sin {20^{\circ}})      & = 0 \\
+\end{align*}
+
+Finally we can now get an expression for $T_1$.
+
+\begin{align*}
+	T_1 & = \frac {G(\mu \cos {20^\circ} + \sin {20^{\circ}})}{\mu\sin {10^\circ} + \cos {10^\circ}}           \\
+	    & = \frac {17\times9.8(\mu \cos {20^\circ} + \sin {20^{\circ}})}{\mu\sin {10^\circ} + \cos {10^\circ}} \\
+	    & \approx 17 \times 9.8 \times 0.5281                                                                  \\
+	    & \approx 88 \mathrm N
+\end{align*}
+
+NOTE this answer is to two sigfigs.
+
+\subsection{c}
+
+Stemming for the fact that
+
+$$T_2 - G_2 0 \iff T_2 = G_2$$
+
+we know that
+
+$$T_1 = T_2 = G_2 = mg$$
+
+then we can use the answer from \ref{sec:newtonpain} to state that the mass of ball is
+
+$$\frac {88}{9.8} \approx 9.0\mathrm{kg}$$
 
 \end{document}
