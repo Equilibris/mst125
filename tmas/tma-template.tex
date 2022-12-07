@@ -12,6 +12,7 @@
 \usepackage{subcaption}
 \usepackage{tikz}
 \usepackage{textcomp}
+% \usepackage{hyperref}
 
 \usetikzlibrary{quotes,angles}
 
@@ -63,62 +64,74 @@
 \begin{enumerate}
 	\item The distance between $\mathrm A(x_1,~y_1)$ and $\mathrm B(x_2,~y_2)$ is given by
 	      \begin{align*}
-		      \mathrm {AB} & = \sqrt{{(x_2-x_1)}^2 + {(y_2-y_1)}^2} \mathrm.
+		      \mathrm {AB} & = \sqrt{{(x_2-x_1)}^2 + {(y_2-y_1)}^2} \mathrm. &  &  &  &
 	      \end{align*}
 	      Hence the distance between $\mathrm A (-3,~1)$ and $\mathrm B (2,~-2)$ is
 	      \begin{align*}
-		      \mathrm {AB} & = \sqrt{{(2-(-3))}^2 + {(-1-1)}^2} \\
-		                   & = \sqrt {5^2 + (-3)^2}             \\
-		                   & = \sqrt {34}\mathrm .
+		      \mathrm {AB} & = \sqrt{{(2-(-3))}^2 + {(-1-1)}^2} &  &  &  & \\
+		                   & = \sqrt {5^2 + (-3)^2}             &  &  &  & \\
+		                   & = \sqrt {34}\mathrm .              &  &  &  &
 	      \end{align*}
 
 	\item The gradient $m$ of the line through $(x_1,~y_1)$ and $(x_2,~y_2)$ is given by
 	      \begin{align*}
-		      m = \frac {y_2 - y_1} {x_2 - x_1} \mathrm .
+		      m = \frac {y_2 - y_1} {x_2 - x_1} \mathrm . &  &  &  &  &  &
 	      \end{align*}
 	      Hence the gradient of the line through $(-3,~1)$ and $(2,~-2)$ is
 	      \begin{align*}
-		      m = \frac {-2-1} {2-(-3)} & = -\frac 35\mathrm .
+		      m = \frac {-2-1} {2-(-3)} & = -\frac 35\mathrm . &  &  &  & \;\;\;\;\;\;
 	      \end{align*}
 
 	\item The gradient of the line is $-\frac 35$. Hence $\tan \alpha = - \frac 35$.
-	      Let $\phi$ be the acute angle that the line makes with the nagative direction of the $x$-axis. Then
+	      Let $\phi$ be the acute angle that the line makes with the negative direction of the $x$-axis. Then
 	      \begin{align*}
-		      \tan \phi & = \frac 35 \mathrm ,
+		      \tan \phi & = \frac 35 \mathrm , &  &  &  &  &  & \;\;
 	      \end{align*}
 	      so
 	      \begin{align*}
-		      \phi & = \tan^{-1} \Big( \frac 35 \Big) = 0.540\dots\mathrm .
+		      \phi & = \tan^{-1} \Big( \frac 35 \Big) = 0.540\dots\mathrm . &  & \;\;\;\;\;\;\;\;\;\;\;\;\;
 	      \end{align*}
 	      Hence
 	      \begin{align*}
-		      \alpha & = \pi - 0.540\dots = 2.601 \dots \mathrm .
+		      \alpha & = \pi - 0.540\dots = 2.601 \dots \mathrm . &  &  &  &
 	      \end{align*}
-	      Therefore the angle $\alpha$ is $2.60$ radiants (to 2 d.p.).
+	      Therefore the angle $\alpha$ is $2.60$ radians (to 2 d.p.).
 \end{enumerate}
 
 \subsection{c}
 
-I intend to typeset my TMA through the fact that I believe the programatic power of \LaTeX is a great advantage. Through MST125 I have even started using \LaTeX over Markdown (with mathjax) for school assignemts now.
+I intend to typeset my TMA through the fact that I believe the programmatic power of \LaTeX is a great advantage. Through MST125 I have even started using \LaTeX over Markdown (with Mathjax) for school assignments now.
 
-Using \LaTeX in my daily school work leads me to a much DRYer (don't repeat yourself) documents where all my associate code can be refrenced with great accuracy without suffering from complecated compilation scripts.
+Using \LaTeX in my daily school work leads me to a much DRYer (don't repeat yourself) documents where all my associate code can be referenced with great accuracy without suffering from complicated compilation scripts.
 
 I have also configured a Vim integration so I can use my primary editor for TMAs.
 
 \section{Question 2}
 
-\begin{enumerate}[label=(\alph*)]
-	\item Find the least residue of $64^7$ modulo $15$.
-	      \begin{align*}
-		      64^7 & \equiv x \mod {15} \\
-		      4^7  & \equiv x \mod {15}
-	      \end{align*}
-	      We observe $4^2 \equiv 1 \mod {15}$.
-	      \begin{align*}
-		      4^1  & \equiv x \mod {15} \\
-		      64^7 & \equiv 4 \mod {15} \\
-	      \end{align*}
-\end{enumerate}
+\subsection{a}
+
+Find the least residue of $64^7$ modulo $15$.
+\begin{align*}
+	64^7 & \equiv x \mod {15} \\
+	4^7  & \equiv x \mod {15}
+\end{align*}
+We observe $4^2 \equiv 1 \mod {15}$.
+\begin{align*}
+	4^1  & \equiv x \mod {15} \\
+	64^7 & \equiv 4 \mod {15} \\
+\end{align*}
+
+The least residual is $4$.
+
+\subsection{b}
+
+\begin{align*}
+	30^{51} & \equiv 4^{51} \mod 13               \\
+	        & \equiv 4^{(4 \times 12 + 3)}\mod 13 \\
+	        & \equiv 4^3 \mod 13                  \\
+	        & \equiv 64 \mod 13                   \\
+	        & \equiv 12
+\end{align*}
 
 \section{Question 3}
 
@@ -126,7 +139,7 @@ I have also configured a Vim integration so I can use my primary editor for TMAs
 
 \subsubsection{i}
 
-We find the $\gcd$ using Euler's algorithm. These variable names come from CAS tool I wrote in Rust for Unit3.
+We find the $\gcd$ using Euler's algorithm. These variable names come from CAS tool I wrote in Rust for Unit 3.
 
 $$\begin{matrix}
 		a  &   & q &        & b  &   & r \\
@@ -171,7 +184,6 @@ As we can see here $\gcd (3,30) \ne 1$ and $3 \not|\;4$ so the congruence is uns
 
 \subsubsection{iii}
 
-
 We begin by simplifying the congruence.
 
 $$\begin{matrix}
@@ -180,9 +192,9 @@ $$\begin{matrix}
 		3  & x & \equiv & 8  & \mod & 10 \\
 	\end{matrix}$$
 
-This is small enougth for a brute force attack but for clarities sake I will not do this.
+This is small enough for a brute force attack but for clarity's sake I will not do this.
 
-We can see they are coprime. Hence we can skip Euler's algo.
+We can see they are co-prime. Hence we can skip Euler's algorithm.
 
 \begin{align*}
 	\textcircled{10}a + \textcircled 3b & = 1                                           \\
@@ -196,6 +208,8 @@ We find least residual and multiply with $8$. So $x \equiv -3 \times 8 \equiv 7 
 \subsubsection{i}
 
 $$7 \times 15 \equiv 105 \equiv 4 \times 26 + 1 \equiv 1 \mod 26$$
+
+Per definition since the product is the multiplicative identity the operation must be an inverse.
 
 \subsubsection{ii}
 
@@ -227,7 +241,7 @@ $$"\mathrm{IQZC}"\xrightarrow{\alpha-\mathrm{numeric}}\{8,\;16,\;25,\;2\}\xright
 
 \section{Question 4}
 
-We rewrite the hyperbola into standard notation for standard possition.
+We rewrite the hyperbola into standard notation for standard position.
 
 \begin{align*}
 	9 x^2 - 4 y^2 - 100                                   & = 0            \\
@@ -237,7 +251,7 @@ We rewrite the hyperbola into standard notation for standard possition.
 	\frac {x^2} {(10\times 3^{-1})^2} - \frac {y^2} {5^2} & = 1
 \end{align*}
 
-This gives ut a few key values
+This gives us a few key values
 
 \begin{align*}
 	a & = \frac {10}3 & b & = 5 & e & = \sqrt {1 + \frac {25\times9}{100}} = \frac {\sqrt{13}}{2}
@@ -245,11 +259,11 @@ This gives ut a few key values
 
 \subsubsection {i}
 
-The asymtotes are $y = \pm \frac {3} {2}x$. Verticies are $(\pm \frac {10}3, 0)$.
+The asymptotes are $y = \pm \frac {3} {2}x$. Vertices are $(\pm \frac {10}3, 0)$.
 
 \subsubsection {ii}
 
-I have decided to sketch on paper as the Maxima plot does not show the verticies so well.
+I have decided to sketch on paper as the Maxima plot does not show the vertices so well.
 
 \begin{figure}[H]
 	\begin{subfigure}{.5\textwidth}
@@ -292,7 +306,7 @@ $$
 	\end{pmatrix}
 $$
 
-To find the bounds we need to observe when we have the signs we want. Since we want a point with a negative $x$-sign and a possitive $y$-sign we need to see when the functions satasfy this.
+To find the bounds we need to observe when we have the signs we want. Since we want a point with a negative $x$-sign and a positive $y$-sign we need to see when the functions satisfy this.
 
 $$\sec x < 0 \;\mathrm{if} -3\frac \pi 2 < x < - \frac \pi 2$$
 
@@ -308,9 +322,9 @@ $$6x^2 - 8xy + 5y^2 - 3x - 16y - 20 = 0$$
 
 \subsubsection{i}
 
-$$T = B^2 - 4 AC = 64 - 6 \times 5 = 34$$
+$$T = B^2 - 4 AC = 64 - 4 \times 6 \times 5 = -56$$
 
-Since $T > 0$ then the conic must be a Hyperbola.
+Since $T < 0$ then the conic must be a Ellipse.
 
 \subsubsection{ii}
 
@@ -323,6 +337,15 @@ Since $T > 0$ then the conic must be a Hyperbola.
         )
 	)$
 \end{lstlisting}
+
+\begin{figure}
+	\centering
+
+	\includegraphics[width=.7\linewidth]{TMA01-T4bii}
+	\caption{Screenshot of Maxima plot}
+
+
+\end{figure}
 
 \section{Question 5}
 
@@ -353,7 +376,7 @@ if $t=1$ then we get $(6,0)$. This means the entire line is translated up by $6$
 	d^2 ={\mid\vec{\mathrm{BA}}\mid}^2 & = 8 t^2 - 12 t + 9
 \end{align*}
 
-\section{c}
+\subsection{c}
 
 \begin{align}
 	d^2 & = 8 t^2 - 12 t + 9                       \label{eq:l1}         \\
@@ -394,7 +417,7 @@ Personally I would solve this task with a differentiation and a substutution but
 
 \subsection{a}
 
-We can see the force diagram as Figure \ref{fig:fd}. This represents a simplification of the forces; angles nor magnatures are correct.
+We can see the force diagram as Figure \ref{fig:fd}. This represents a simplification of the forces; angles nor magnatures are correct. The 4 forces that act on the crate are the normal reaction $N$, the friction $F$, the tensile force $T_1$ and the gravitational force $G_1$. In the diagram I have also included a force diagram for the ball.
 
 \begin{figure}[H]
 	\centering
@@ -493,7 +516,7 @@ Finally we can now get an expression for $T_1$.
 	    & \approx 88 \mathrm N
 \end{align*}
 
-NOTE this answer is to two sigfigs.
+NOTE this answer is to 2 sigfigs.
 
 \subsection{c}
 
@@ -509,21 +532,91 @@ then we can use the answer from \ref{sec:newtonpain} to state that the mass of b
 
 $$\frac {88}{9.8} \approx 9.0\mathrm{kg}$$
 
-\end{document}
+\section{Question 7}
+
+\subsection{a}
 
 \begin{figure}[H]
 	\centering
 	\begin{tabular}{|c|c|c|}
 		\hline
-		Question & Status  & On attempt \\
+		Question & Status  & Marks \\
 		\hline
-		Q1       & Correct & 1          \\
-		Q2       & Correct & 2          \\
-		Q3       & Correct & 1          \\
-		Q4       & Correct & 3          \\
-
+		1        & Correct & 1.00  \\
+		2        & Correct & 0.83  \\
+		3        & Correct & 1.00  \\
+		4        & Correct & 0.67  \\
+		5        & Correct & 1.00  \\
+		6        & Correct & 1.00  \\
+		7        & Correct & 0.67  \\
+		8        & Correct & 1.00  \\
 		\hline
 	\end{tabular}
 \end{figure}
+
+\subsection{b}
+
+Unit 5 has been quite simple through the fact that these forms of mechanics (dynamics as well) have been covered in 3 of my courses (dynamics only in 2). This has been helpful but also marginally anoying through the fact that the notation is difference and hence a lot of mistakes that could have been avoided. Examples of this are for example measuring angles from the wrong axis. This caused my errors in task 2 and 4.
+
+The parts i found strangest to work with were the two unknown force tasks. This was later cleared up when i implemented my own vector library for handeling this exact kind of task. My error in task 7 stemmed from me trying to fit the task to my recently created library. This did not work but could.
+
+\subsection{c}
+
+Through Unit 5 i feel i have cultivated my skills from Physics 1 (norwegian subject code REA3004) and 2 (REA3005). This has also given me the required understanding to construct a Thruss solver such as https://ei.jhu.edu/truss-simulator/. This seems like a nice usage of what i have learnt and would be a nice way to apply the unit material even more in a practical and useful real world application.
+
+% \section{LoL doing on comp}
+
+% $$\mathbf N + \mathbf F + \mathbf W +\mathbf G = 0$$
+
+% $$N\begin{bmatrix}
+% 		\cos 110 \\
+% 		\sin 110
+% 	\end{bmatrix} - .54 N \begin{bmatrix}
+% 		\cos 20 \\
+% 		\sin 20
+% 	\end{bmatrix} + 123 \begin{bmatrix}
+% 		\cos 75 \\
+% 		\sin 75
+% 	\end{bmatrix} + \begin{bmatrix}
+% 		0 \\
+% 		-mg
+% 	\end{bmatrix} = 0$$
+
+% \begin{align*}
+% 	N\cos 110 - .54 N \cos 20 + 123 \cos 75 & = 0                                            \\
+% 	N (\cos 110 - .54 \cos 20)              & = -123 \cos 75                                 \\
+% 	N                                       & = \frac {-122 \cos 75}{\cos 110 - .54 \cos 20} \\
+% 	                                        & \approx 37.17
+% \end{align*}
+
+% \begin{align*}
+% 	m & = \frac {N \sin 110 - .54 \sin 20 + 123 \sin 75}{-g}
+% \end{align*}
+
+% \hrule
+
+% $$N\begin{bmatrix}
+% 		\cos 115 \\
+% 		\sin 115
+% 	\end{bmatrix} + .3 N \begin{bmatrix}
+% 		\cos 25 \\
+% 		\sin 25
+% 	\end{bmatrix} + (40 \times 9.81) \begin{bmatrix}
+% 		\cos 85 \\
+% 		\sin 85
+% 	\end{bmatrix} + \begin{bmatrix}
+% 		0 \\
+% 		-mg
+% 	\end{bmatrix} = 0$$
+
+% \begin{align*}
+% 	N\cos 115 + .3 N \cos 25 + (40 \times 9.8) \cos 85 & = 0                                                       \\
+% 	N (\cos 115 + .3 \cos 25)                          & = -(40 \times 9.8) \cos 85                                \\
+% 	N                                                  & = \frac {-(40 \times 9.8) \cos 85}{\cos 115 + .3 \cos 25} \\
+% 	                                                   & \approx 226.67
+% \end{align*}
+
+
+% $$m = \frac {N \sin 115 + .3 N \sin 25 + (40 \times 9.8) \sin 85}{-g}$$
 
 \end{document}
