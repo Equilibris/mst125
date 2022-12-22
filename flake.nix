@@ -16,8 +16,7 @@
       in rec {
         devShell = pkgs.mkShell {
           packages = with pkgs; [
-            texlive.combined.scheme-medium
-            libsForQt5.okular
+            python310
             (fenix.packages."${system}".latest.withComponents [
               "cargo"
               "clippy"
