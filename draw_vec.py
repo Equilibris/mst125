@@ -44,19 +44,26 @@ class Vec:
         cx, cy = base.base
 
         # Given the set of eqs [cx = a ca + b cb, cy = a sa + b sb] where sx = sinx and cx = cos
-        # The general solution to a is
-        # a = (cb * cy - cx) / (cb * sa - ca)
-        # Then b follows as
-        # cx = a ca + b cb <=> b = (a * ca + cx) / cb
+        #
+        # a = (cx - b cb) / ca
+        # cy = (cx / ca - b cb / ca) sa + b sb
+        # cy = sa cx / ca - sa b cb / ca + b sb
+        # cy - sa cx / ca = b (- sa cb / ca + sb)
+        # (cy - sa cx / ca) / (- sa cb / ca + sb) = b
 
-        a = (cb * cy - cx) / (cb * sa - ca)
-        b = (a * ca + cx) / cb
+        b = (cy - sa * cx / ca) / (- sa * cb / ca + sb)
+        a = (cx - b * cb) / ca
 
-        return cls((a * ca, a * sb)), cls((b * cb, b * sb))
+        return cls.from_deg(angle_a, a), cls.from_deg(angle_b, b)
 
     def __init__(self, base, offset = (0,0)):
         self.offset = offset
         self.base = base
+
+    def __repr__(self) -> str:
+        if self.offset == (0,0):
+            return f'{self.__class__.__name__}({self.base})'
+        return f'{self.__class__.__name__}({self.base}, {self.offset})'
 
     @property
     def x(self):
