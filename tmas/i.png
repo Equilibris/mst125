@@ -1,0 +1,85 @@
+<h1 id="question-1">Question 1</h1>
+<h2 id="a">A</h2>
+<p><span class="math display">$$\begin{aligned}
+    g(x, y) &amp;= (7x, 3y) \\
+            &amp;= (7x + 0y, 0x + 3y) \\
+            &amp;= \begin{bmatrix}
+                7 &amp; 0 \\
+                0 &amp; 3
+               \end{bmatrix}
+               \begin{bmatrix}
+                   x\\ y
+               \end{bmatrix}
+\end{aligned}$$</span></p>
+<p><span class="math display">$$\begin{aligned}
+    h(x, y) &amp;= (x + 3y, y) \\
+            &amp;= (x + 3y, 0x + y) \\
+            &amp;= \begin{bmatrix}
+                1 &amp; 0 \\
+                3 &amp; 1
+               \end{bmatrix}
+               \begin{bmatrix}
+                   x\\ y
+               \end{bmatrix}
+\end{aligned}$$</span></p>
+<p><span class="math display">$$\begin{aligned}
+    k(x, y) &amp;= (y, x) \\
+            &amp;= (0x + 1y, 1x + 0y) \\
+            &amp;= \begin{bmatrix}
+                0 &amp; 1 \\
+                1 &amp; 0
+               \end{bmatrix}
+               \begin{bmatrix}
+                   x\\ y
+               \end{bmatrix}
+\end{aligned}$$</span></p>
+<p> </p>
+<h2 id="b">b</h2>
+<p><span class="math display">$$\begin{aligned}
+    f &amp;= k \circ h \circ g \\
+      &amp;= \begin{bmatrix}
+            0 &amp; 1 \\
+            1 &amp; 0
+         \end{bmatrix}
+         \begin{bmatrix}
+          1 &amp; 0 \\
+          3 &amp; 1
+         \end{bmatrix}
+         \begin{bmatrix}
+          7 &amp; 0 \\
+          0 &amp; 3
+         \end{bmatrix}
+         \begin{bmatrix}
+          x \\
+          y
+         \end{bmatrix} \\
+      &amp;= \begin{bmatrix}
+            0 &amp; 1 \\
+            1 &amp; 0
+         \end{bmatrix}
+         \begin{pmatrix}
+         \begin{bmatrix}
+          1 &amp; 0 \\
+          3 &amp; 1
+         \end{bmatrix}
+         \begin{bmatrix}
+          7 &amp; 0 \\
+          0 &amp; 3
+         \end{bmatrix}
+         \end{pmatrix}
+         \begin{bmatrix}
+          x \\
+          y
+         \end{bmatrix}
+\end{aligned}$$</span></p>
+<p> </p>
+<h1 id="section">2</h1>
+<h2 id="a-1">a</h2>
+<h3 id="i">i</h3>
+<p>We are aware that matricies are linear transformations and linear
+transformations fix the orign we know that <span
+class="math inline">$\mathbf a = \begin{bmatrix}1 &amp;
+0\end{bmatrix}^\top$</span>.</p>
+<p><span class="math display">$$\begin{aligned}
+    ;
+\end{aligned}$$</span></p>
