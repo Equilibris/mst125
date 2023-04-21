@@ -75,6 +75,9 @@ class Vec:
     def __add__(self, other):
         return Vec((self.x + other.x, self.y + other.y))
 
+    def __neg__(self, other):
+        return Vec((self.x + other.x, self.y + other.y))
+
     def __mul__(self, other):
         if isinstance(other, Matrix):
             return other.a * self.x + other.b * self.y

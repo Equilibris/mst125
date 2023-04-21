@@ -14,38 +14,16 @@
 \usepackage{textcomp}
 % \usepackage{hyperref}
 
-\usetikzlibrary{quotes,angles}
-
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-
-\lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},   
-    basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,
-    breaklines=true,
-    captionpos=b,
-    keepspaces=true,
-    numbers=left,
-    numbersep=5pt,
-    showspaces=false,
-    showstringspaces=false,
-    showtabs=false,
-    tabsize=2
-}
+% \usetikzlibrary{quotes,angles}
 
 \graphicspath{ {./assets} }
 
-\lstset{style=mystyle}
-
 \author{William B. Sørensen}
-\title{MST125 TMA02}
+\title{MST125 TMA01}
 \begin{document}
 \maketitle
-\tableofcontents
 
+\tableofcontents
 \section{Question 1}
 
 \subsection{A}
@@ -57,4 +35,23 @@
                 7 & 0 \\
                 0 & 3
             \end{bmatrix}
+            \begin{bmatrix}
+                x \\ y
+            \end{bmatrix}
 \end{align}
+
+\subsection{B}
+
+\begin{align}
+    g(x, y) &= (7x, 3y) \\
+            &= (7x + 0y, 0x + 3y) \\
+            &= \begin{bmatrix}
+                7 & 0 \\
+                0 & 3
+            \end{bmatrix}
+            \begin{bmatrix}
+                x \\ y
+            \end{bmatrix}
+\end{align}
+
+\end{document}
